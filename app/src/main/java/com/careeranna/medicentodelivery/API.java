@@ -28,6 +28,11 @@ public class API {
         Call<Verification> GetUser(@Path("login") String l,
                                    @Query("user_email") String email,
                                    @Query("password") String pwd);
+
+        @GET("{profile}")
+        Call<ProfilePojo> GetUser(@Path("profile") String p,
+                                   @Query("user_email") String email
+                                   );
     }
 }
 
