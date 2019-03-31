@@ -1,6 +1,7 @@
 package com.careeranna.medicentodelivery;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -234,7 +235,7 @@ public class Profile extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode==1000){
+        if(requestCode==1000 && resultCode== Activity.RESULT_OK){
             if(data.getData()!=null)
                 imageView.setImageURI(data.getData());
             button.setVisibility(View.INVISIBLE);
