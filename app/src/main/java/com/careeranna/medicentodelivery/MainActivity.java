@@ -19,6 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+    public  static TextInputLayout email;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     @Override
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //initialisation
-        final TextInputLayout email=findViewById(R.id.useremailL);
+        email=findViewById(R.id.useremailL);
         final TextInputLayout pwd=findViewById(R.id.userpasswordL);
         Button login =findViewById(R.id.sign_in_btn);
         final TextView tv=findViewById(R.id.check);
@@ -58,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
                             tv.setVisibility(View.INVISIBLE);
                             pg.setVisibility(View.GONE);
-                            Intent intent = new Intent(MainActivity.this, Profile.class);
-                            intent.putExtra("message", email.getEditText().getText().toString());
+                            Intent intent = new Intent(MainActivity.this, Dashboard.class);
                             startActivity(intent);
                         }
 

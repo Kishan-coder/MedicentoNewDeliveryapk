@@ -65,9 +65,7 @@ public class Profile extends AppCompatActivity {
         m5=findViewById(R.id.start_five);
 
         //Get email from bundle
-        Bundle bundle = getIntent().getExtras();
-        final String email_ = bundle.getString("message");
-
+        final String email_=MainActivity.email.getEditText().getText().toString();
         //call API
         final API api=new API();
         final Call<ProfilePojo> pcall=api.getService().GetUser("profile", email_);
