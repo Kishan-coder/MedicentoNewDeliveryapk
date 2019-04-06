@@ -33,6 +33,8 @@ public class API {
         Call<ProfilePojo> GetUser(@Path("profile") String p,
                                    @Query("user_email") String email
                                    );
+        @GET(".")
+        Call<DashboardPojo> GetUser(@Query("user_email") String email);
     }
 }
 
