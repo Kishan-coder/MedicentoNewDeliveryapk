@@ -5,13 +5,17 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/Dashboard"
+            android:icon="@drawable/ic_personal_video_black_20dp"
+            android:title="Dashboard" />
+        <item
             android:id="@+id/profile"
             android:icon="@drawable/ic_user_profile"
             android:title="Profile" />
         <item
-            android:id="@+id/orderpickup"
-            android:icon="@drawable/ic_current_delivery"
-            android:title="Order PickUp" />
+            android:id="@+id/Billing"
+            android:icon="@drawable/ic_assignment_black_20dp"
+            android:title="Billing" />
         <item
             android:id="@+id/PendingPackagings"
             android:icon="@drawable/ic_dashboard"
@@ -20,6 +24,14 @@
             android:id="@+id/Joblist"
             android:icon="@drawable/ic_job_list"
             android:title="Job List" />
+        <item
+            android:id="@+id/change_pwd"
+            android:icon="@drawable/ic_edit"
+            android:title="Change Password" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
+            android:title="Logout" />
     </group>
 
 </menu>

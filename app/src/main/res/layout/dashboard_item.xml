@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@color/colorPrimaryDark">
+    android:background="#FF94CDA0">
 
     <TextView
         android:id="@+id/areanames"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:background="@color/colorBackground"
+        android:background="@drawable/border"
         android:gravity="center"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="18sp"
@@ -20,12 +20,12 @@
 
     <TextView
         android:id="@+id/deliveries"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_margin="5dp"
         android:layout_marginLeft="0dp"
         android:layout_weight="1"
-        android:background="@color/colorBackground"
+        android:background="@drawable/border"
         android:gravity="center"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="18sp"

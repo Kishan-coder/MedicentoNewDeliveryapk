@@ -34,11 +34,6 @@ public class MainActivity extends AppCompatActivity {
         final TextView tv=findViewById(R.id.check);
         final ProgressBar pg= findViewById(R.id.sign_in_progress);
 
-        if(pref.contains("Email_pwd")){
-            String email_pwd=pref.getString("Email_pwd", "");
-            email.getEditText().setText(email_pwd.substring(0, email_pwd.indexOf(' ')));
-            pwd.getEditText().setText(email_pwd.substring(email_pwd.indexOf(' ')+1));
-        }
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
                             tv.setVisibility(View.INVISIBLE);
                             pg.setVisibility(View.GONE);
+
                             Intent intent = new Intent(MainActivity.this, Dashboard.class);
                             startActivity(intent);
                         }
@@ -73,4 +69,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(pref.contains("Email_pwd")){
+            Intent intent = new Intent(MainActivity.this, Dashboard.class);
+            startActivity(intent);
+        }
+    }
 }

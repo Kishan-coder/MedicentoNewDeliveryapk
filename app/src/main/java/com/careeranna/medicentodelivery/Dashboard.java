@@ -1,9 +1,15 @@
 package com.careeranna.medicentodelivery;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,11 +35,14 @@ public class Dashboard extends AppCompatActivity
 
     RecyclerView recyclerView;
     AreaAdapter adapter;
+    SharedPreferences pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
         //Initialisation
+        pref= getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
         final TextView completed= findViewById(R.id.dc);
         final TextView pending= findViewById(R.id.dp);
         final TextView points= findViewById(R.id.points);
@@ -41,7 +50,10 @@ public class Dashboard extends AppCompatActivity
         recyclerView=findViewById(R.id.recycle);
 
         final API api=new API();
-        final Call<DashboardPojo> dcall=api.getService().GetUser(MainActivity.email.getEditText().getText().toString());
+        String s=null;
+        if(pref.contains("Email_pwd"))
+            s=pref.getString("Email_pwd", "");
+        final Call<DashboardPojo> dcall=api.getService().GetUser(s.substring(0, s.indexOf(" ")));
         dcall.enqueue(new Callback<DashboardPojo>() {
             @Override
             public void onResponse(Call<DashboardPojo> call, Response<DashboardPojo> response) {
@@ -81,12 +93,13 @@ public class Dashboard extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
         } else {
-            super.onBackPressed();
+            getFragmentManager().popBackStack();
         }
+        Intent i= new Intent(Dashboard.this,Dashboard.class);
+        startActivity(i);
     }
 
     @Override
@@ -105,15 +118,48 @@ public class Dashboard extends AppCompatActivity
         if (id == R.id.profile) {
             Intent intent = new Intent(Dashboard.this, Profile.class);
             startActivity(intent);
-        } else if (id == R.id.orderpickup) {
-
-        } else if (id == R.id.PendingPackagings) {
-
+        } else if (id == R.id.Billing) {
+            setTitle("Billing");
+            FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fl, new Billing_fragment());
+            ft.commit();
+        }
+        else if(id == R.id.Dashboard){
+            setTitle("Dashboard");
+            if (getSupportFragmentManager().getFragments() != null && getSupportFragmentManager().getFragments().size() > 0) {
+                for (int i = 0; i < getSupportFragmentManager().getFragments().size(); i++) {
+                    Fragment mFragment = getSupportFragmentManager().getFragments().get(i);
+                    if (mFragment != null) {
+                        getSupportFragmentManager().beginTransaction().remove(mFragment).commit();
+                    }
+                }
+            }        }
+        else if (id == R.id.PendingPackagings) {
+            setTitle("Pending Packagings");
+            FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fl, new Pending_packagings());
+            ft.commit();
         } else if (id == R.id.Joblist) {
-
+            setTitle("Pending Jobs");
+            FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fl, new Pending_jobs());
+            ft.commit();
+        }
+        else if(id== R.id.change_pwd){
+            Intent intent = new Intent(Dashboard.this, change_password.class);
+            startActivity(intent);
+        }
+        else if(id==R.id.logout){
+            SharedPreferences.Editor editor=pref.edit();
+            editor.clear();
+            editor.commit();
+            finish();
+            Intent intent =new Intent(Dashboard.this, MainActivity.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

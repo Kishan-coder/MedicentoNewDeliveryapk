@@ -30,10 +30,8 @@
                 android:id="@+id/rc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:background="@drawable/border"
-                android:padding="2dp"></android.support.v7.widget.RecyclerView>
+                android:background="@color/colorLight"
+                android:padding="5dp"></android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/d1"
@@ -47,10 +45,8 @@
                 android:id="@+id/rc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:background="@drawable/border"
-                android:padding="2dp"></android.support.v7.widget.RecyclerView>
+                android:background="@color/colorLight"
+                android:padding="5dp"></android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/rp1"
@@ -64,10 +60,9 @@
                 android:id="@+id/rc3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:background="@drawable/border"
-                android:padding="2dp"></android.support.v7.widget.RecyclerView>
+                android:layout_marginBottom="4dp"
+                android:background="@color/colorLight"
+                android:padding="5dp"></android.support.v7.widget.RecyclerView>
 
 
         </LinearLayout>

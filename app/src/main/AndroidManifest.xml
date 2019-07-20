@@ -16,11 +16,20 @@
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Profile"
-            android:label="Profile"/>
+        <activity android:name=".Profile">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashboard"
+            />
+        </activity>
+
         <activity
-            android:name=".change_password"
-            android:label="@string/app_name" />
+            android:name=".change_password">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashboard"
+                />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
