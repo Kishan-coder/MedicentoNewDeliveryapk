@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:background="@drawable/border"
+    android:backgroundTint="@color/colorBackground"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/phramacies"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            tools:text="Vamshi medicals" />
+
+        <TextView
+            android:id="@+id/area1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Area :" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order No : " />
+
+        <TextView
+            android:id="@+id/orderno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery by :" />
+
+        <TextView
+            android:id="@+id/deliverby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Amt: " />
+
+        <TextView
+            android:id="@+id/orderamt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Items          :" />
+
+        <TextView
+            android:id="@+id/items1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distributor :" />
+
+            <TextView
+                android:id="@+id/distributor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Tulasi " />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calldistributor"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="call distributor"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/sendorder"
+            android:layout_width="60sp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="send order"
+            android:textSize="8sp" />
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="package status"
+                android:textSize="8sp" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="40dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
